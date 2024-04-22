@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: anand-hello-node
+ labels:
+   app: anand-hello-node
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: anand-hello-node
+ template:
+   metadata:
+     labels:
+       app: anand-hello-node
+   spec:
+     containers:
+     - name: node
+       image: public.ecr.aws/u2q1a2y8/soon-node-docker-ecr-20240422:latest
+       ports:
+       - containerPort: 8080
